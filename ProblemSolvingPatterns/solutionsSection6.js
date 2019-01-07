@@ -157,7 +157,50 @@ function maxSubarraySum(arr, number) {
 }
 
 
-function minSubArrayLen(arr, number) {
+function minSubArrayLen(arr, limit) {
+    //create vars, one equals infinity
+    let total = 0, start = 0, end = 0, minLen = Infinity;
+    //if the start is greater than the array length 
+    while(start < arr.length) {
+        //and total, or end are smaller than the sum you should achieve
+        if(total < limit && end < arr.length) {
+            // add the numbers to total starting with 0 end
+            total += arr[end];
+            //increase end by one
+            end++;
+            //if total is greater or equal to the sum you should achieve
+        } else if(total >= limit) {
+            //filter new min length using Math.min, the length is between the end and the start of the string
+            minLen = Math.min(minLen, end - start);
+            //rest from total if its greater than the limit
+            total -= arr[start];
+            // add to start
+            start++;
+        } else {
+            break;
+        }
+    }
+    //we return the minlen 0 if its infinity (meaning there are no subarrays) or minLen; 
+    return minLen === Infinity ? 0 : minLen;
 } 
 
-console.log(minSubArrayLen([2,3,1,2,4,3], 7));
+console.log(minSubArrayLen([2,3,1,2,4,2,3,1,4,3], 7));
+
+function findLongestSubstring(str) {
+    let long = 0, checked = {}, start = 0;
+    for(let i = 0; i <str.length;i++) {
+        //if the char exists
+        if(checked[str[i]]) {
+            // we declare the value of start to be the biggest one between start and the values we already iterated through
+            start = Math.max(start, checked[str[i]]);
+        }
+        //after each iteration, declare that long is equal to long or to the index minus the start + 1;
+        long = Math.max(long, i - start + 1);
+        //we increase our checked account by one
+        checked[str[i]] = i + 1; 
+    }
+    //return long
+    return long;
+} 
+
+console.log(findLongestSubstring('asdfasdfasdfasdf'));
