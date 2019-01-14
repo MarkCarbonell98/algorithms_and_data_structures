@@ -67,15 +67,15 @@ console.log(selectionSort(testArr4));
 function insertionSort(arr) {
     for(let i = 1; i < arr.length;i++) {
         let start = arr[i];
-        for(let j = i -1; j >= 0 && arr[j] > start; j--) {
+        for(var j = i -1; j >= 0 && arr[j] > start; j--) {
             arr[j+1] = arr[j];
         }
-        // arr[j+1] = start;
+        arr[j+1] = start;
     }
     return arr;
 }
 
-let testArr5 = [1,3,3,6,6,7,3,22,34,6,2346,23,46,23,6,234,6,24356456]
+let testArr5 = [12345,23,4,123,4,12,34,12,34,12,34,12,341,234,13,3,3,6,6,7,3,22,34,6,2346,23,46,23,6,234,6,24356456]
 console.log(insertionSort(testArr5));
 
 
