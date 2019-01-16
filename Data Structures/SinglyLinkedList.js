@@ -28,27 +28,9 @@ class SinglyLinkedList {
     printList() {
         console.log("LENGTH = %d", this.length);
         for(let i = this.head; i; i=i.next) {
-            console.log(i.val, i.next);
+            console.log(i.val);
         }
     }
-
-    // pop() {
-    //     if(!this.head) return undefined;
-    //     let current = this.head;
-    //     let newTail = current;
-    //     while(current.next) {
-    //         newTail = current;
-    //         current = current.next;
-    //     }
-    //     this.tail = newTail;
-    //     this.tail.next = null;
-    //     this.length--;
-    //     if(this.length === 0) {
-    //         this.head = null;
-    //         this.tail = null;
-    //     }
-    //     return current;
-    // }
     pop() {
         let actualElement, lastElem;
         if(!this.head) return undefined;
@@ -91,70 +73,86 @@ class SinglyLinkedList {
     }
 
     get(index) {
-        if(!this.head) return undefined;
+        if(!this.head || index < 0 || index > this.length) return undefined;
         let counter = 0;
         for(let i = this.head;i; i=i.next) {
-            if(counter === index) {
-                return i;
-            } else if(counter > index || index < 0) {
-                return undefined;
-            }
+            if(counter === index) return i;
             counter++;
         }
     }
     set(index, newValue) {
-        if(!this.head) return undefined;
-        let counter = 0;
-        for(let i = this.head; i; i=i.next) {
-            if(counter === index) {
-                i.val = newValue;
-                return i;
-            }
-            counter++;
-        }
+        let theNode = this.get(index);
+        if(!theNode) return false;
+        theNode.val = newValue;
+        return true;
     }
 
-        insert(index, node) {
-            if(!this.head) return undefined;
-            let counter = 0, theElement;
-            for(let i = this.head; i; i=i.next) {
-                if(counter === index) {
-                    theElement = i.next;
-                    i.next = node;
-                    node.next = theElement;
-                    return list;
-                }
-                counter++;
-            }
+    insert(index, val) {
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+        let newNode = new Node(val);
+        let prev = this.get(index-1);
+        let temp = prev.next;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === this.length) return !!this.pop();
+        if(index === 0) return !!this.shift();
+        let lastNode = this.get(index-1);
+        let removedNode = this.get(index);
+        lastNode.next = removedNode.next;
+        this.length--;
+        return removedNode;
+    }
+
+    reverse() {
+        let node = this.head, next, prev = null;
+        this.head = this.tail;
+        this.tail = node;
+        for(let i = 0; i< this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
         }
+        return this;
+    }
 }
 
-let first = new Node("hey");
-first.next = new Node("you");
-first.next.next = new Node("look");
-first.next.next.next = new Node("pretty! :P");
-
 let list = new SinglyLinkedList();
-list.push("yo");
-list.push("soy");
-list.push("increible")
-console.log(list)
-list.pop();
-console.log(list);
-list.shift()
-console.log(list);
-list.unshift('y amazing');
-console.log(list);
-console.log(list.get(1));
-console.log(list.set(1, "YOLOOOOOOOO"))
-console.log(list);
-list.insert(first);
-console.log(list);
+let testNode = new Node("Hi, I am the new node!");
+list.push("Servus");
+list.push("Kollegen");
+list.push("Guten");
+list.push("Morgen!");
+console.log(list.get(0));
+console.log(list.get(3));
+list.insert(0, "hey bro");
+list.printList()
+list.insert(0, "hey bro");
+list.printList()
+list.remove(0);
+list.remove(0);
+list.printList();
+list.remove(2);
+list.printList();
+list.remove(1);
+list.printList()
+list.push("new node 1");
+list.push("new node 2");
+list.push("new node 3");
+list.push("new node 4");
+list.printList();
+list.reverse();
+list.printList();
+list.reverseEff();
+list.reverseEff();
 
-
-// list.push("amazing");
-// list.push("amazing");
-// console.log(list);
-// console.log(list.length)
-// console.log(list.tail);
-// console.log(list.head)
+list.printList();
+console.log(list.get(6));
+list.printList()
