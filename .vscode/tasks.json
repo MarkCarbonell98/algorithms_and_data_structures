@@ -1,0 +1,45 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+<<<<<<< HEAD
+            "label": "Run with Node.js",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${file}"
+            ],
+=======
+            "label": "Compile And Run .js file",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${fileBasename}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}",
+            },      
+>>>>>>> cee36bd9153634c39f712eaf0706ea769952a26b
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+<<<<<<< HEAD
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+=======
+>>>>>>> cee36bd9153634c39f712eaf0706ea769952a26b
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
