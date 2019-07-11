@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click here to activate handler</p>
+
+    <button>Click me</button>
+    <p>No handler here.</p>
+
+    <button class="act-once">Act-once button</button>
+
+    <button class="multiClick">Click me any way you want</button>
+
+    <p class="para">
+        paragraph with a <button class="paraButton">button</button>
+    </p>
+
+    <p class="continue">
+        "press ctrl space to continue"
+    </p>
+
+    <style>
+        body {
+            height: 200px;
+            background: beige;
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 4px;
+            background-color: blue;
+            position: absolute;
+        }
+
+        .dot2 {
+            position: absolute;
+            display: block;
+            border: 2px solid red;
+            border-radius: 50px;
+            height: 100px;
+            width: 100px;
+        }
+
+        #progress {
+            border-bottom: 2px solid blue;
+            height: 20px;
+            width: 20px;
+            position: fixed;
+            top: 2000;
+            left: 0;
+        }
+    </style>
+
+    <p>Drag the bar to change width</p>
+    <div style="background: orange; width: 60px; height: 20px"></div>
+    
+    
+    <p>touch the page</p>
+    
+    <p id="ballon">🎈</p>
+
+    <style>
+        .trail { /* className for the trail elements */
+            position: absolute;
+            height: 6px; width: 6px;
+            border-radius: 3px;
+            background: teal;
+        }
+        body {
+            height: 300px;
+        }
+        </style>
+    
+    <div id="progress"></div>
+
+    <textarea>Type something here...</textarea>
+    <script>
+    let textarea = document.querySelector("textarea");
+    let timeout;
+    textarea.addEventListener("input", () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => console.log("Typed!"), 500);
+    });
+    </script>
+
+    <p>Name: <input type="text" data-help="your full name"></p>
+    <p>Age: <input type="text" data-help="your age in years"></p>
+    <p id="help"></p>
+
+    <tab-panel>
+        <div data-tabname="one">Tab one</div>
+        <div data-tabname="two">Tab two</div>
+        <div data-tabname="three">Tab three</div>
+    </tab-panel>
+    
+</body>
+<script src="eventlisteners.js"></script>
+</html>
