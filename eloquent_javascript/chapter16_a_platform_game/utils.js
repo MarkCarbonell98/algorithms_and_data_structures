@@ -40,5 +40,11 @@ function drawActors(actors) {
     }))
 }
 
+function flipHorizontally(context, around) {
+    context.translate(around, 0);
+    context.scale(-1, 1);
+    context.translate(-around, 0)
+}
+
 export * from "./config.js";
-export {drawActors, overlap, drawGrid, elt}
+export {drawActors, overlap, drawGrid, elt, flipHorizontally}

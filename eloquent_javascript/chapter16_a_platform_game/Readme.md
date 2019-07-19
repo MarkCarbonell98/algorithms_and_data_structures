@@ -1,6 +1,6 @@
 # Lava Quest
 
-A simple 2D web game build with pure JavaScript inspired in Thomas Palef's Dark Blue.actor
+A simple 2D web game build with pure JavaScript inspired in Thomas Palef's Dark Blue
 
 # Instructions
 
@@ -23,6 +23,8 @@ You only have three lives to complete the Game
 
 ### Enemies
 Lava and Monsters are your enemies. You can kill monsters by jumping on their heads
+
+#Have fun!
 
 
 
