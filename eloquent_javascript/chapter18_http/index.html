@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form method="GET" action="example/message.html">
+        <p>Name: <input type="text" name="name"></p>
+        <p>Message:<br><textarea name="message"></textarea></p>
+        <p><button type="submit">Send</button></p>
+      </form>
+
+      <!-- tabindex declares the tab index -->
+
+      <input type="text" tabindex="1">
+
+      <script src="fetch.js"></script>
+
+      <input type="text" tabindex="1">
+      <a href=".">(help)</a>
+      <button onclick="console.log('ok')" tabindex=2>OK</button>
+
+      <form action="example/submit.html">
+        Name: <input type="text" name="name"><br>
+        Password: <input type="password" name="password"><br>
+        <button type="submit">Log in</button>
+      </form>
+</body>
+</html>

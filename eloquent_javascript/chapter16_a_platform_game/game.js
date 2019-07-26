@@ -472,4 +472,4 @@ async function runGame(plans, Display) {
     console.log("you have won!");
 }
 
-runGame(allLevels, CanvasDisplay);
+runGame(allLevels, DomDisplay);
